@@ -32,7 +32,6 @@ const App = {
     this.updateCatalogMeta();
     this.renderFiltered();
     this.bindEvents();
-    this.initScrollHeader();
   },
 
   /* ── Render ─────────────────────── */
@@ -64,22 +63,6 @@ const App = {
     set('catalog-subtitle', subtitle);
     set('header-catalog-name', title);
     document.title = title;
-  },
-
-  /* ── Scroll-aware header ─────────────────────────────── */
-  initScrollHeader() {
-    const h = document.getElementById('catalog-header');
-    if (!h) return;
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          h.classList.toggle('scrolled', window.scrollY > 16);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }, { passive: true });
   },
 
   /* ── Bind all events ─────────────────────────────────── */

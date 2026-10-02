@@ -47,7 +47,6 @@ const CatalogRenderer = {
   // ── Render one product frame ─────────────────────────────
   renderCard(p) {
     const img     = p.image || this.getPlaceholder(p);
-    const hasImg  = !!p.image;
     const hasPrice  = p.price && Number(p.price) > 0;
     const hasBonus  = p.bonus && Number(p.bonus) > 0;
     const features  = (p.features || []).slice(0, 3);
@@ -67,13 +66,24 @@ const CatalogRenderer = {
       <div class="pf__info">
         <h2 class="pf__name">${p.name || 'Untitled'}</h2>
         ${p.activeIngredient ? `<p class="pf__ingredient">${p.activeIngredient}</p>` : ''}
+        
+        ${features.length ? `
+        <ul class="pf__features">
+          ${features.map(f => `<li class="pf__feature">${f}</li>`).join('')}
+        </ul>` : ''}
+        
+        <div class="pf__spacer"></div>
+
         ${specsHTML ? `<div class="pf__specs">${specsHTML}</div>` : ''}
+        
         <div class="pf__commerce">
           ${hasPrice ? `
           <div class="pf__price">
             <span class="pf__price-lbl">Price</span>
-            <span class="pf__price-num">${this.fmt(p.price)}</span>
-            <span class="pf__price-cur">IQD</span>
+            <div class="pf__price-num">
+              ${this.fmt(p.price)}
+              <span class="pf__price-cur">IQD</span>
+            </div>
           </div>` : '<div class="pf__price" style="opacity:0.3"><span class="pf__price-num" style="font-size:1.1rem">—</span></div>'}
           ${hasBonus ? `
           <div class="pf__bonus">
@@ -81,11 +91,6 @@ const CatalogRenderer = {
             <span class="pf__bonus-val">+${p.bonus}%</span>
           </div>` : ''}
         </div>
-        ${features.length ? `
-        <ul class="pf__features">
-          ${features.map(f => `<li class="pf__feature">${f}</li>`).join('')}
-        </ul>` : ''}
-        ${p.description ? `<p class="pf__desc">${p.description}</p>` : ''}
       </div>
     </article>`;
   },
@@ -108,7 +113,16 @@ const CatalogRenderer = {
       return;
     }
 
-    grid.innerHTML = products.map(p => this.renderCard(p)).join('');
+    let html = '';
+    // Group into chunks of 4 for the 2x2 clusters
+    for (let i = 0; i < products.length; i += 4) {
+      const chunk = products.slice(i, i + 4);
+      html += `<div class="product-cluster">`;
+      html += chunk.map(p => this.renderCard(p)).join('');
+      html += `</div>`;
+    }
+
+    grid.innerHTML = html;
     this.initObserver();
   },
 

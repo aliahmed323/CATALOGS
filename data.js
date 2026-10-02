@@ -3,37 +3,29 @@
 // ============================================================
 
 // ── Master Visual Prompt ────────────────────────────────────
-const DEFAULT_MASTER_PROMPT = `You are a world-class pharmaceutical product photographer creating images for a premium healthcare brand catalog. Every image must look like it belongs to the same professional pharmaceutical campaign.
+const DEFAULT_MASTER_PROMPT = `You are a world-class pharmaceutical product photographer creating images for a premium healthcare brand catalog.
 
 OUTPUT FORMAT — MANDATORY:
-Compose the image in a 4:3 LANDSCAPE aspect ratio. The pharmaceutical package must be fully visible with intentional breathing room on all sides. Do not crop any part of the packaging. Position the product with deliberate negative space to allow clean catalog display.
+Compose the image in a 1:1 SQUARE aspect ratio. The image must have a glass showcase aesthetic (pristine reflections, brilliant light).
+
+COMPOSITION & FOCUS — CRITICAL:
+Extremely close-up (macro) photography. The product must be prominently in the foreground, taking up the majority of the frame. 
+Create a massive sense of depth: the product must be extremely clear and close, while the background is pushed far away with a beautiful, creamy shallow depth of field (bokeh).
 
 PHOTOGRAPHY STYLE:
-Hyper-realistic commercial pharmaceutical advertising photography. Medium-format camera aesthetic (Hasselblad / Phase One). Ultra-sharp product focus, cinematic depth of field (f/2.8–4.0 equivalent). The image must look like a physical photograph taken in a professional studio — not CGI, not illustration, not AI-generated-looking.
+Hyper-realistic commercial pharmaceutical advertising photography. Medium-format camera aesthetic. Ultra-sharp product focus. The image must look like a physical photograph taken in a professional studio — not CGI.
 
 LIGHTING:
-Shaped studio lighting. Soft-box key light from upper-left at 45°. Subtle fill from opposite side. Rim/hair light to separate the product from background. Soft directional shadows grounded to the surface. Never flat. Never overexposed. Controlled, elegant specular highlights.
-
-IMAGE QUALITY:
-8K commercial resolution appearance. Maximum sharpness on the product label and packaging. Background may have shallow depth-of-field artistic blur. Photorealistic.
-
-COMPOSITION:
-Art-directed. The product may be positioned slightly left, slightly right, or centered — but always intentional. Supporting pharmaceutical environmental elements may appear subtly out of focus in the background. Generous negative space. The product occupies approximately 55–70% of the frame height.
+Ultra-clear, brilliant studio lighting. High exposure clarity. Soft-box key light from the front-left to make the product pop brightly. Rim light to separate it completely from the background. 
 
 SURFACE & ENVIRONMENT:
-The product rests on an elegant surface — frosted glass, white marble, matte clinical surface, or dark polished surface — depending on the product's therapeutic category and environment direction. Soft, controlled reflection below the product. No harsh mirror effect.
+The product rests on an elegant glass or highly polished showcase surface. Brilliant, clean reflections below the product.
 
-PACKAGE PRESERVATION — CRITICAL (read carefully):
+PACKAGE PRESERVATION — CRITICAL:
 Do NOT redesign, reinterpret, simplify, replace, or modify the pharmaceutical packaging in any way.
 Do NOT change the brand name, logo, typography, colors, or layout of the package.
-Do NOT invent new packaging or alter dosage, strength, or any printed information.
-Do NOT create fictional pharmaceutical claims.
-Use the supplied product image as the EXACT reference for the physical package.
-Preserve all important package text, branding, logo placement, and proportions exactly.
-You are ONLY creating the environment, background, surface, lighting, shadows, and atmosphere around the original package.
-
-VISUAL IDENTITY CONSISTENCY:
-This image is part of a single pharmaceutical campaign catalog. The photography language, quality, realism, and sophistication must be consistent with all other images in the catalog. The background, surface, and atmosphere may vary per product, but the overall photographic vocabulary must remain unified.
+Use the supplied product image as the EXACT reference. Preserve all text and proportions perfectly.
+You are ONLY creating the lighting, background, and glass showcase environment around the original package.
 
 PRODUCT-SPECIFIC CONTEXT:
 Product: [PRODUCT_NAME]
@@ -47,7 +39,7 @@ Brand Color: [BRAND_COLOR]
 ENVIRONMENT DIRECTION FOR THIS IMAGE:
 [ENVIRONMENT_DIRECTION]
 
-Final reminder: 4:3 landscape ratio. Complete package visibility. Preserve all packaging exactly. Create environment only.`;
+Final reminder: 1:1 Square ratio. Product very close and large. Brilliant lighting. Deep blurred background. Preserve packaging exactly.`;
 
 
 // ── Sample Products ─────────────────────────────────────────
